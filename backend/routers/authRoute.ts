@@ -38,6 +38,7 @@ router.post('/signup' , async (req : Request , res : Response) =>{
             if(user){
                 res.status(201).json(
                     {
+                        statusCode : 201,
                         message : 'user created successfully'
                     }
                 )
@@ -45,6 +46,7 @@ router.post('/signup' , async (req : Request , res : Response) =>{
             else{
                 res.status(500).json(
                     {
+                        statusCode : 500,
                         error : 'Server error'
                     }
                 )
@@ -132,6 +134,7 @@ router.post('/forget-pass' , async (req : Request , res : Response) =>{
     const mail = await sendthroughMail(otp , email);
     if(mail!==null || mail !== undefined){
         return res.status(201).json({
+            statusCode : 201,
             message : 'otp send through mail'
         })
     }
@@ -160,6 +163,7 @@ router.post('/verify-token' , async (req : Request , res : Response) =>{
          })
          if(!response){
             return res.status(404).json({
+                statusCode : 404,
                 error : 'token expired or not matched'
             })
          }

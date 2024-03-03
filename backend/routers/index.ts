@@ -1,2 +1,3 @@
 export {default as Auth} from './authRoute';
 export {default as User} from './userRoute';
+export {default as Module} from './moduleRoute';
