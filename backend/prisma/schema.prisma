@@ -1,0 +1,66 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User{
+  id String @default(uuid()) @unique
+  email String @unique
+  password String 
+  username String @unique
+  age Int
+  phone_no String
+  points String @default("0")
+  rank String @default("rookie")
+  avatar String @default("https://image.png") 
+  createdAt DateTime @default(now()) 
+  updatedAt DateTime @default(now()) @updatedAt
+
+}
+
+model PasswordReset {
+  email String @unique
+  token String
+  expiresAt DateTime
+
+}
+
+model Module{
+  id Int @unique @default(autoincrement())
+  name String 
+  description String
+  
+  subModuels Submodule[]
+}
+model Submodule{
+  id Int @unique @default(autoincrement())
+  name String
+  description String
+  animations String []
+  module Module @relation(fields : [moduleID] , references: [id])
+  moduleID Int @unique
+  quiz Quiz[]
+}
+
+model Quiz{
+  id Int @unique @default(autoincrement())
+  submodule Submodule @relation(fields : [submoduleID] , references: [id])
+  submoduleID Int @unique
+  questions String[]
+
+}
+
+model LeaderBoard{
+  id Int @unique @default(autoincrement())
+
+}
