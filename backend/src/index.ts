@@ -1,9 +1,11 @@
 import express from 'express';
+import dotenv from 'dotenv';
 import cors from 'cors';
-import { Auth } from '../routers';
+import { Auth , User } from '../routers';
 import { errorHandler } from '../middleware/errorHandler';
-const app = express();
+dotenv.config();
 
+const app = express();
 app.use(cors());
 
 app.use(express.json());
@@ -11,11 +13,11 @@ app.use(express.json());
 const PORT  = process.env.PORT || 6969;
 
 app.get('/' , (req , res) =>{
-    res.send('working ...');
+    res.send('on the way working ...');
 })
 
 app.use(Auth.BASE , Auth.router);
-
+app.use(User.BASE , User.router);
 app.use(errorHandler);
 
 app.listen(PORT , () =>{

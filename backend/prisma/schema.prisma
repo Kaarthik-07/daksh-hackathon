@@ -13,54 +13,87 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User{
-  id String @default(uuid()) @unique
-  email String @unique
-  password String 
-  username String @unique
-  age Int
-  phone_no String
-  points String @default("0")
-  rank String @default("rookie")
-  avatar String @default("https://image.png") 
-  createdAt DateTime @default(now()) 
-  updatedAt DateTime @default(now()) @updatedAt
+model User {
+  id             String           @unique @default(uuid())
+  email          String           @unique
+  password       String
+  username       String           @unique
+  age            Int
+  phone_no       String
+  points         Int              @default(0)
+  rank           String           @default("rookie")
+  avatar         String           @default("https://image.png")
+  createdAt      DateTime         @default(now())
+  updatedAt      DateTime         @default(now()) @updatedAt
+  moduleProgress ModuleProgress[]
+  weeklyscore    WeeklyScore[]
+  LeaderBoard    LeaderBoard?     @relation(fields: [leaderBoardId], references: [id])
+  leaderBoardId  Int?
+}
 
+model Module {
+  id             Int              @unique
+  name           String
+  description    String
+  total_points   Int              @default(100)
+  earned_points  Int              @default(0)
+  subModuels     Submodule[]
+  ModuleProgress ModuleProgress[]
+}
+
+model Submodule {
+  id                Int                 @unique @default(autoincrement())
+  name              String
+  description       String
+  animations        String[]
+  module            Module              @relation(fields: [moduleID], references: [id])
+  moduleID          Int                 @unique
+  quiz              Quiz[]
+  SubmoduleProgress SubmoduleProgress[]
+}
+
+model Quiz {
+  id          Int       @unique @default(autoincrement())
+  submodule   Submodule @relation(fields: [submoduleID], references: [id])
+  submoduleID Int       @unique
+  questions   String[]
+}
+
+model ModuleProgress {
+  id                Int                 @unique @default(autoincrement())
+  user              User                @relation(fields: [userId], references: [id])
+  userId            String              @unique
+  module            Module              @relation(fields: [moduleId], references: [id])
+  moduleId          Int
+  submoduleProgress SubmoduleProgress[] // Relationship to track submodule progress for each user's module
+  completed         Boolean             @default(false)
+}
+
+model SubmoduleProgress {
+  id               Int            @unique @default(autoincrement())
+  moduleProgress   ModuleProgress @relation(fields: [moduleProgressId], references: [id])
+  moduleProgressId Int
+  submodule        Submodule      @relation(fields: [submoduleId], references: [id])
+  submoduleId      Int
+  completed        Boolean        @default(false)
+}
+
+model WeeklyScore {
+  id     Int    @id @unique @default(autoincrement())
+  user   User   @relation(fields: [userId], references: [id])
+  userId String @unique
+  points Int
+}
+
+model LeaderBoard {
+  id         Int    @unique @default(autoincrement())
+  rank       String
+  weekNumber Int
+  topUsers   User[]
 }
 
 model PasswordReset {
-  email String @unique
-  token String
+  email     String   @unique
+  token     String
   expiresAt DateTime
-
-}
-
-model Module{
-  id Int @unique @default(autoincrement())
-  name String 
-  description String
-  
-  subModuels Submodule[]
-}
-model Submodule{
-  id Int @unique @default(autoincrement())
-  name String
-  description String
-  animations String []
-  module Module @relation(fields : [moduleID] , references: [id])
-  moduleID Int @unique
-  quiz Quiz[]
-}
-
-model Quiz{
-  id Int @unique @default(autoincrement())
-  submodule Submodule @relation(fields : [submoduleID] , references: [id])
-  submoduleID Int @unique
-  questions String[]
-
-}
-
-model LeaderBoard{
-  id Int @unique @default(autoincrement())
-
 }

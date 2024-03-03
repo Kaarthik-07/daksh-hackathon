@@ -4,9 +4,9 @@ import bcrypt from 'bcryptjs';
 import { JWT_SECRET , TOKEN_EXPIRY_DATE } from '../constant';
 import { PrismaClient } from '@prisma/client';
 import { Request , Response } from 'express';
-import { generateotp } from '../lib/generateOtp';
+import { generateotp } from '../lib/utils/generateOtp';
 import { Login , Signup } from '../lib/interfaces';
-import { sendthroughMail } from '../lib/sendMail';
+import { sendthroughMail } from '../lib/utils/sendMail';
 
 const prisma = new PrismaClient();
 const router = express.Router();
