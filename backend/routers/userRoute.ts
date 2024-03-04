@@ -10,7 +10,9 @@ const router = express.Router();
 
 
 const BASE = '/user';
-
+router.get("/" , (req:Request , res : Response) =>{
+    res.send('this route is working');
+})
 router.get('/profile/:user_id' , authValidation , async (req : Request , res : Response) =>{
   const user_id = req.params.user_id;
    const client = await pool.connect();
@@ -43,11 +45,21 @@ router.get('/profile/:user_id' , authValidation , async (req : Request , res : R
 })
 
 router.get('/dashboard/:userName' , async (req : Request , res : Response  ) =>{
+    console.log(req.params);
+    
     const userName = req.params.userName;
+
     const client  = await pool.connect();
+    //console.log(client);
+    
     try{
 
+        console.log('reached here');
+        
+
         const result = await client.query(GetUserDashBoard , [userName]);
+        //console.log(result);
+        
         const data = result.rows;
 
         if(!data){
@@ -71,8 +83,9 @@ router.get('/dashboard/:userName' , async (req : Request , res : Response  ) =>{
 })
 
 const MODULE = {
-    router , 
-    BASE
+    
+    BASE,
+    router
 }
 
 export default MODULE;

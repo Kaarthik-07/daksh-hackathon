@@ -1,12 +1,12 @@
 import express from 'express';
 import { pool } from '../config/db';
-import { GetSubmodules  , GetLeaderboard ,GetModulesById} from '../queries/moduleQuery';
+import { GetSubmodules  , GetLeaderboard ,GetModulesById , GetModules} from '../queries/moduleQuery';
 import { Request , Response } from 'express';
 import { authValidation } from '../middleware/authentication';
 
 
 const BASE = '/modules';
-const GetModules = `SELECT * FROM 'Module'`;
+
 
 const router = express.Router();
 

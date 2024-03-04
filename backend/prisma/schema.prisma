@@ -19,7 +19,7 @@ model User {
   password       String
   username       String           @unique
   age            Int
-  phone_no       String
+  phone_no       String           @unique
   points         Int              @default(0)
   rank           String           @default("rookie")
   avatar         String           @default("https://image.png")
