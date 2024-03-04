@@ -37,6 +37,7 @@ model Module {
   description    String
   total_points   Int              @default(100)
   earned_points  Int              @default(0)
+  content        Json 
   subModuels     Submodule[]
   ModuleProgress ModuleProgress[]
 }
@@ -47,6 +48,7 @@ model Submodule {
   description       String
   animations        String[]
   module            Module              @relation(fields: [moduleID], references: [id])
+  content           Json
   moduleID          Int                 @unique
   quiz              Quiz[]
   SubmoduleProgress SubmoduleProgress[]
