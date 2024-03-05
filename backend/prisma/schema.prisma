@@ -27,8 +27,7 @@ model User {
   updatedAt      DateTime         @default(now()) @updatedAt
   moduleProgress ModuleProgress[]
   weeklyscore    WeeklyScore[]
-  LeaderBoard    LeaderBoard?     @relation(fields: [leaderBoardId], references: [id])
-  leaderBoardId  Int?
+
 }
 
 model Module {
@@ -91,7 +90,7 @@ model LeaderBoard {
   id         Int    @unique @default(autoincrement())
   rank       String
   weekNumber Int
-  topUsers   User[]
+  topUsers   String[]
 }
 
 model PasswordReset {

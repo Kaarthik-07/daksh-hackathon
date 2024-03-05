@@ -7,6 +7,7 @@ import { Request, Response } from 'express';
 import { generateotp } from '../lib/utils/generateOtp';
 import { Login, Signup } from '../lib/interfaces';
 import { sendthroughMail } from '../lib/utils/sendMail';
+import { validateLogin  , validateSignUp} from '../validators';
 
 const prisma = new PrismaClient();
 const router = express.Router();
@@ -15,7 +16,7 @@ const BASE = '/auth';
 router.get("/", (req , res) =>{
     res.status(200).send('it is working')
 })
-router.post('/signup', async (req: Request, res: Response) => {
+router.post('/signup', validateSignUp ,  async (req: Request, res: Response) => {
     const { email, password,
         username, age,
         phone_no,
@@ -62,7 +63,7 @@ router.post('/signup', async (req: Request, res: Response) => {
     }
 })
 
-router.post('/login', async (req: Request, res: Response) => {
+router.post('/login', validateLogin , async (req: Request, res: Response) => {
     const {
         email, password
     }: Login = req.body;
