@@ -1,27 +1,33 @@
-// import OpenAI from "openai";
+
+
 import dotenv from 'dotenv';
 dotenv.config();
-import OpenAI from "openai";
 
-const openai = new OpenAI({
-  organization: process.env.OPEN_API_KEY,
-  apiKey:process.env.OPEN_API_ORG
+import OpenAI from 'openai';
+
+
+
+const gptassist = async ({prompt}:any) =>{
+        const openai = new OpenAI({
+  organization: process.env.OPEN_API_KEY ||'org-Qvm1VgWg4Zby01dxdNjhKlmj' ,  
+  apiKey: process.env.OPEN_API_ORG || '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'
 });
-
-
-// const completion = await openai.create
-
-
-
-async function main() {
-    const stream = await openai.chat.completions.create({
-        model: "gpt-3.5-turbo-0301",
-        messages: [{ role: "user", content: "Say this is a test" }],
-        stream: true,
-    });
-    for await (const chunk of stream) {
-        process.stdout.write(chunk.choices[0]?.delta?.content || "");
-    }
+         console.log(prompt);
+        
+         try{
+		 const response = await openai.completions.create({
+			 model:'gpt-3.5-turbo-instruct',
+			 prompt : prompt,
+			 max_tokens : 2000,
+		})
+        const data = response.choices[0].text.trim();
+		console.log(data);
+        return data;
+	}
+	catch(err){
+		console.error('Error:' , err);
+        return null;
+	}
 }
 
-main();
+export {gptassist};

@@ -16,8 +16,9 @@
 ### tasks
 - store videos on db
 - create bucket in some random cloud
-- ml
-- gpt-api
+- ml -> done✅
+- gpt-api -> done✅
 
+## i wish i had death note
 
 
