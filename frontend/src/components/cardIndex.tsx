@@ -7,17 +7,21 @@ import { motion } from "framer-motion";
 
 export default function CardIndex() {
     const images = [
-        "/image1.jpeg",
-        "/image2.jpeg",
-        "/image3..jpeg", // Corrected typo here
-        "/image4.jpeg",
-        "/image5.jpeg",
-        "/image1.jpeg",
-        "/image2.jpeg",
-        "/image3..jpeg", // Corrected typo here
-        "/image4.jpeg",
-        "/image5.jpeg",
+        {src:"/ai1.jpeg",title:"module 1"},
+        {src:"/ai2.jpeg",title:"module 2"},
+        {src:"/ai3.jpeg",title:"module 3"},
+        {src:"/ai4.jpeg",title:"module 4"},
+        {src:"/ai5.jpeg",title:"module 5"},
+        {src:"/ai1.jpeg",title:"module 6"},
+        {src:"/ai2.jpeg",title:"module 2"},
+        {src:"/ai3.jpeg",title:"module 3"},
+        {src:"/ai4.jpeg",title:"module 4"},
+        {src:"/ai5.jpeg",title:"module 5"},
+
     ];
+    const title =[
+        
+    ]
 
     const FAST_DURATION = 25;
     const SLOW_DURATION = 75;
@@ -56,7 +60,7 @@ export default function CardIndex() {
     return (
         <main className="py-8 relative">
             <motion.div
-                className="absolute left-0 flex gap-4"
+                className="absolute left-0 flex gap-4 text-blac"
                 ref={ref}
                 style={{ x: xTransition }}
                 onMouseEnter={() => {
@@ -67,7 +71,18 @@ export default function CardIndex() {
                 onMouseLeave={() => setDuration(FAST_DURATION)}
             >
                 {images.map((image, index) => (
-                    <Carousel image={image} key={index} />
+                    <div key={index}>
+                        <div>
+                                                        <div key={index} style={{ position: "relative" }}>
+                                <div>
+                                    <Carousel image={image.src} title={image.title} />
+                                    {/* <h1 className="text-black font-bold" style={{ position: "absolute", top: 0, left: 0 }}>
+                                        {image.title}
+                                    </h1> */}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 ))}
             </motion.div>
         </main>

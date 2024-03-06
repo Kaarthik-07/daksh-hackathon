@@ -5,9 +5,22 @@ import { AnimatePresence, motion } from 'framer-motion';
 
 interface CarouselProps {
     image: string;
+    title: string;
 }
+const title =[
+    "AI",
+    "AI",
+    "AI",
+    "AI",
+    "AI",
+    "AI",
+    "AI",
+    "AI",
+    "AI",
+    "AI",
+]
 
-const Carousel: React.FC<CarouselProps> = ({ image }) => {
+const Carousel: React.FC<CarouselProps> = ({ image,title }) => {
     const [showOverlay, setShowOverlay] = React.useState(true); 
 
     return (
@@ -25,15 +38,16 @@ const Carousel: React.FC<CarouselProps> = ({ image }) => {
                         exit={{ opacity: 0 }}
                     >
                         <div className='absolute bg-black pointer-events-none opacity-50 h-full' />
-                        <motion.h1
-                            className='bg-white font-semibold text-sm z-10 px-3 py-2 rounded-full flex items-center gap[0.5 ch] hover:opacity-75'
-                            initial={{ y: 10 }}
-                            animate={{ y: 0 }}
-                            exit={{ y: 10 }}
-                        >
-                            <a href="/about" className='text-black'>Explore now</a>
-                            <img src="/arrow.png" className='w-4 h-4' alt="Arrow" />
-                        </motion.h1>
+
+                                                <motion.h1
+                                                    className='bg-white font-semibold text-sm z-10 px-3 py-2 rounded-full flex items-center gap[0.5 ch] hover:opacity-75'
+                                                    initial={{ y: 10 }}
+                                                    animate={{ y: 0 }}
+                                                    exit={{ y: 10 }}
+                                                >{title}
+                                                    <a href="/module" className='text-black'>Explore now</a>
+                                                    <img src="/arrow.png" className='w-4 h-4' alt="Arrow" />
+                                                </motion.h1>
 
                     </motion.div>
                 )}

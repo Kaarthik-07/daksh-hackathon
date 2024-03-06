@@ -9,8 +9,11 @@ const Footer = () => {
     <div className="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-32">
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
             <div className="space-y-8">
-                <img className="h-20" src="https://aaah0mnbncqtinas.public.blob.vercel-storage.com/FX5ATkass4-no-background-VmcZHSX7xE4ng29ATNphGUdb388fxH.png" alt="Company name" />
-                <p className="text-sm leading-6 text-white">Making football look better to the world and a more respecful game.</p>
+                <motion.img className="h-20" src="/aii.png" alt="Company name"
+                 initial={{ scale: 1 }}
+                 whileHover={{ scale: 1.1 }}
+                 transition={{ duration: 0.3 }} />
+                <p className="text-sm leading-6 text-white">Making this website to look better to the world and a more respecful generation.</p>
                 <div className="flex space-x-6">
                     <a href="#" className="text-white hover:text-gray-500">
                         <span className="sr-only">Facebook</span>
