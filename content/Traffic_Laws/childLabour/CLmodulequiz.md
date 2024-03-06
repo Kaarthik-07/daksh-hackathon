@@ -177,4 +177,26 @@ a) To discourage them from taking action
 b) To instill a sense of responsibility and agency in them  
 c) To limit their involvement  
 
+
+3. Why is it important to reflect on what we've learned about child labour?
+   - A) To understand its impact on children
+   - B) To identify ways to prevent it
+   - C) To change our perspective on the issue
+   - D) All of the above
+
+#### Creating an Action Plan
+
+4. What is the significance of creating an action plan to stop child labour?
+   - A) It helps in organizing thoughts and ideas
+   - B) It enables individuals to take meaningful steps towards prevention
+   - C) It empowers communities to address the issue collectively
+   - D) All of the above
+
+#### Empowering Kids to be Advocates for Change
+
+5. How can kids contribute to stopping child labour according to the content?
+   - A) By using their voice to raise awareness
+   - B) By working with friends to develop prevention ideas
+   - C) By supporting organizations dedicated to stopping child labour
+   - D) All of the above
 ```
