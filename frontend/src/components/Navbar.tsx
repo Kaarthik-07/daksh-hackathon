@@ -7,20 +7,21 @@ const Navbar = () => {
       <div className="container flex h-16 items-center justify-between max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center">
           <a className="flex items-center space-x-2">
-            <div className="relative h-8 w-8 bg-black border border-slate-800 text-white flex items-center justify-center rounded-md cursor-grab">
+            <div className="relative h-8 w-8 border text-white flex items-center justify-center rounded-md ">
               <motion.div
                 whileHover={{ scale: 0.9 }}
                 whileTap={{ scale: 1 }}
-                className="absolute top-[-2.5rem] mx-auto h-10 w-full bg-white/[0.2] rounded-full blur-xl cursor-grab	"
+                className="absolute top-[-2.5rem] mx-auto h-10 w-full  rounded-full blur-xl "
               ></motion.div>
               <motion.img
                 alt="Logo"
-                src="/logo.webp"
+                src="/aii.png"
                 layout="fill"
                 objectFit="cover"
                 className="rounded-md"
-                whileHover={{ scale: 0.9 }}
-                whileTap={{ scale: 1 }}
+                initial={{ scale: 1}}
+                whileHover={{ scale: 3.1 }}
+                transition={{ duration: 0.3 }}
               />
             </div>
             <motion.h1

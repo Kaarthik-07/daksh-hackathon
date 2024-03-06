@@ -1,6 +1,7 @@
 import express from 'express';
 import { pool } from '../config/db';
-import { GetSubmodules  , GetLeaderboard ,GetModulesById , GetModules} from '../queries/moduleQuery';
+import { GetSubmodules  , GetLeaderboard ,GetModulesById , GetModules } from '../queries/moduleQuery';
+import { GetRanking } from '../queries/leaderboardQuery';
 import { Request , Response } from 'express';
 import { authValidation } from '../middleware/authentication';
 
@@ -111,34 +112,40 @@ router.get('/submodules/:module_id', authValidation ,  async (req: Request, res:
     }
 });
 
+// router.get('/leaderboard',  async (req: Request, res: Response) => {
+//     const client = await pool.connect();
+//     let data;
+//     try{
+//     const result = await client.query(GetRanking);
+//     if(result.rows){
+//         data = result.rows;
+//         return res.status(201).json({
+//             statusCode : 201,
+//             data : data
+//         })
+//     }
+//     else{
+//         return res.status(200).json({
+//             msg : 'Still not updated pls wait till the weekend'
+//         })
+//     }
 
-router.get('/leaderboard',  async (req: Request, res: Response) => {
-    const client = await pool.connect();
+//     }
+//     catch(err){
+//         return res.status(500).json(
+//             {
+//                 err : 'Internal Server Error'
+//             }
+//         )
+//     }
+//     finally{
+//         client.release();
+//     }
 
-    try {
-        const result = await client.query(GetLeaderboard);
+     
+// });
 
-        if (result.rows.length > 0) {
-            return res.status(200).json({
-                statusCode: 200,
-                data: result.rows
-            });
-        } else {
-            return res.status(404).json({
-                statusCode: 404,
-                error: 'Leaderboard data not found'
-            });
-        }
-    } catch (err) {
-        console.error('Error fetching leaderboard data:', err);
-        return res.status(500).json({
-            statusCode: 500,
-            error: 'Internal Server Error'
-        });
-    } finally {
-        client.release();
-    }
-});
+
 
 const MODULE = {
     BASE, 
