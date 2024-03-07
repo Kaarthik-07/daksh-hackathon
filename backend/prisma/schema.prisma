@@ -49,7 +49,7 @@ model Submodule {
   animations        String[]
   module            Module              @relation(fields: [moduleID], references: [id])
   content           Json
-  moduleID          Int                 @unique
+  moduleID          Int                 
   quiz              Quiz[]
   SubmoduleProgress SubmoduleProgress[]
 }
@@ -59,8 +59,8 @@ model Quiz {
   submodule   Submodule @relation(fields: [submoduleID], references: [id])
   module      Module   @relation(fields: [moduleID] , references: [id])
   moduleID    Int
-  submoduleID Int       @unique
-  questions   String[]
+  submoduleID Int       
+  questions   Json 
 }
 
 model ModuleProgress {

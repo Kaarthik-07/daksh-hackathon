@@ -2,7 +2,7 @@ import express from 'express';
 import { pool } from '../config/db';
 
 import { Request, Response } from 'express';
-// import { authValidation } from '../middleware/authentication';
+
 import { GetUser, GetUserDashBoard } from '../queries/userQuery';
 import { GetMyPoints } from '../queries/leaderboardQuery';
 

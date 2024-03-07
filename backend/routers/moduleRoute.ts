@@ -1,10 +1,9 @@
 import express from 'express';
 import { pool } from '../config/db';
 import { GetSubmodules  , GetLeaderboard ,GetModulesById , GetModules } from '../queries/moduleQuery';
-import { GetRanking } from '../queries/leaderboardQuery';
+
 import { Request , Response } from 'express';
-// import { authValidation } from '../middleware/authentication';
-import { gptassist } from '../config/openai';
+
 
 const BASE = '/modules';
 

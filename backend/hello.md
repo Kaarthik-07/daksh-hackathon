@@ -14,11 +14,13 @@
 ## do you like raisins ? , how about a date ?
 
 ### tasks
-- store videos on db
-- create bucket in some random cloud
+- store videos on db ✅
+- create bucket in some random cloud ✅ 
 - ml -> done✅
 - gpt-api -> done✅
 
 ## i wish i had death note
+
+
 
 
