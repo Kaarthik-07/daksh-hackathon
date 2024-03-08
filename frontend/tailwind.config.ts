@@ -16,6 +16,9 @@ const config: Config = {
     extend: {
       colors: {
         customBlack: '#27272A',
+        gold: '#FFD700',
+        silver: '#C0C0C0',
+        brownish: '#8B4513',
       },
       animation: {
         spotlight: "spotlight 2s ease .75s 1 forwards",

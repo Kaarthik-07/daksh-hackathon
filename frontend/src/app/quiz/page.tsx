@@ -1,4 +1,3 @@
-
 // Import necessary modules and components
 "use client"
 import React, { useEffect, useState } from 'react';
@@ -29,8 +28,7 @@ interface Props {
 const Results: React.FC<Props> = ({ questions }) => {
   return (
     <div>
-      {/* Render results */}
-    </div>
+     </div>
   );
 };
 
@@ -77,7 +75,7 @@ const Quiz: React.FC = () => {
     setcount(count + 1);
     if (count >= 2) {
       if (totalscore >= 20) {
-        router.push('/success');
+        router.push('/sucess');
       } else {
         router.push('/notsucess');
       }
@@ -104,73 +102,68 @@ const Quiz: React.FC = () => {
 
   // Render Quiz component JSX
   return (
+    
     <>
+    
       {loading ? (
         <>
-          <p>YOUR SCORE IS {score}</p>
+        
+          <p className='text-center font-bold '>YOUR SCORE IS {score}</p>
           {score >= 7 ? (
-            <p>you seem to be smart, get ready for a harder one. Are you ready?</p>
+            <>
+            <p className = 'text-center font-semibold'>you seem to be smart, get ready for a harder one. Are you ready?</p>
+            <video src="rizz.mp4"  autoPlay controls className="mx-auto mt-4 w-80 h-90" /> 
+            
+            </>
           ) : (
-            <p>Better luck next time, try the next one.</p>
+            <>
+            <p className = 'text-center font-semibold'>Better luck next time, try the next one.</p>
+            <video src="crying.mp4"  autoPlay controls className="mx-auto mt-4 w-80 h-90" /> 
+            </>
           )}
         </>
       ) : (
         <>
-          <div>
-            {moduleId && submoduleId ? (
-              <div>
-                <h1>Module ID: {moduleId}</h1>
-                <h2>Submodule ID: {submoduleId}</h2>
-              </div>
-            ) : null}
+          {questions.length > 0 && (
             <div>
-              {questions && (
-                <div className='p-14'>
-                <div >
+              <h1>Module ID: {moduleId}</h1>
+              <h2>Submodule ID: {submoduleId}</h2>
+              <div className='p-14'>
+                <div>
                   <h2>Quiz Questions</h2>
-                  </div>
-                  {questions.map((ele) => (
-                    <>
-                    <div className='bg-white divide-y divide-black '>  
-                      <h1 className='text-black font-bold rounded p-3  hover:cursor-pointer m-2 hover:text-blacck'>{'Q.'+ele.question}</h1>
-                      <p className='text-black rounded p-3  hover:bg-slate-400 hover:cursor-point hover:text-black m-2' onClick={() => {setscore(score+ 3)}}>{'a. ' + ele.options['a']}</p>
-                      <p className='text-black  rounded p-3  hover:bg-slate-400 hover:cursor-pointer  hover:text-black  m-2' onClick={() => {setscore(score+ 1)}}>{'b. ' + ele.options['b']}</p>
-                      <p className='text-black  rounded p-3 hover:cursor-pointer  hover:bg-slate-400 hover:text-black  m-2' onClick={() => {setscore(score + 5)}}>{'c. ' + ele.options['c']}</p>
-                      <p className='text-black rounded p-3 hover:cursor-pointer  hover:bg-slate-400 hover:text-black  m-2' onClick={() => {setscore(score + 0)}}>{'d. ' + ele.options['d']}</p>
-                    </div>
-                    </>
-
-                  ))}
                 </div>
-              )}
-            </div>
-            <div className='flex justify-center items-center  '>
-            <button 
-            className ='p-4 bg-violet-500 rounded-md'
-            onClick={() => handleClick(score)}>Get Results: {score}</button>
-            </div>
-          </div>
-          <div className='p-14'>
-            {results && (
-              <>
-                {results.map((ele) => (
-                  <>
-                  <div className='bg-white divide-y divide-black rounded-md'>
-                    <h1 className='text-black font-bold rounded p-3  hover:cursor-pointer m-2 hover:text-black'>{'Q.'+ele.question}</h1>
-                    <p className='text-black  rounded p-3  hover:cursor-pointer m-2 hover:text-black' onClick={() => {setscore(score+ 3)}}>{'a. ' + ele.options['a']}</p>
-                    <p className='text-black  rounded p-3  hover:cursor-pointer m-2 hover:text-black' onClick={() => {setscore(score+ 1)}}>{'b. ' + ele.options['b']}</p>
-                    <p className='text-black  rounded p-3  hover:cursor-pointer m-2 hover:text-black' onClick={() => {setscore(score + 5)}}>{'c. ' + ele.options['c']}</p>
-                    <p className='text-black rounded p-3  hover:cursor-pointer m-2 hover:text-black' onClick={() => {setscore(score + 0)}}>{'d. ' + ele.options['d']}</p>
-                    </div>
-                  </>
-
+                {questions.map((ele) => (
+                  <div className='bg-white divide-y divide-black rounded-xl' key={ele.question}>
+                    <h1 className='text-black font-bold rounded p-3 hover:cursor-pointer m-2 hover:text-black'>{'Q.' + ele.question}</h1>
+                    <p className='text-black rounded p-3 hover:bg-gradient-to-r from-indigo-500 hover:cursor-point hover:text-black m-2' onClick={() => { setscore(score + 3) }}>{'a. ' + ele.options['a']}</p>
+                    <p className='text-black rounded p-3 hover:bg-slate-400 hover:cursor-pointer hover:text-black m-2' onClick={() => { setscore(score + 1) }}>{'b. ' + ele.options['b']}</p>
+                    <p className='text-black rounded p-3 hover:bg-slate-400 hover:cursor-pointer hover:text-black m-2' onClick={() => { setscore(score + 5) }}>{'c. ' + ele.options['c']}</p>
+                    <p className='text-black rounded p-3 hover:bg-slate-400 hover:cursor-pointer hover:text-black m-2' onClick={() => { setscore(score + 0) }}>{'d. ' + ele.options['d']}</p>
+                  </div>
                 ))}
-              </>
-            )}
-          </div>
+                <div className='flex justify-center items-center'>
+                  <button className='p-4 bg-violet-500 rounded-md' onClick={() => handleClick(score)}>Get Results: {score}</button>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {results.length > 0 && (
+            <div className='p-14'>
+              {results.map((ele) => (
+                <div className='bg-white divide-y divide-black rounded-xl' key={ele.question}>
+                  <h1 className='text-black font-bold rounded p-3 hover:cursor-pointer m-2 hover:text-black'>{'Q.' + ele.question}</h1>
+                  <p className='text-black rounded p-3 hover:bg-slate-400 hover:cursor-pointer hover:text-black m-2' onClick={() => { setscore(score + 3) }}>{'a. ' + ele.options['a']}</p>
+                  <p className='text-black rounded p-3 hover:bg-slate-400 hover:cursor-pointer hover:text-black m-2' onClick={() => { setscore(score + 1) }}>{'b. ' + ele.options['b']}</p>
+                  <p className='text-black rounded p-3 hover:bg-slate-400 hover:cursor-pointer hover:text-black m-2' onClick={() => { setscore(score + 5) }}>{'c. ' + ele.options['c']}</p>
+                  <p className='text-black rounded p-3 hover:bg-slate-400 hover:cursor-pointer hover:text-black m-2' onClick={() => { setscore(score + 0) }}>{'d. ' + ele.options['d']}</p>
+                </div>
+              ))}
+            </div>
+          )}
         </>
       )}
-      <ChatModule /> {/* Use the ChatModule component */}
+      <ChatModule />  
     </>
   );
 };
