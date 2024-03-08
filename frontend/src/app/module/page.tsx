@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useState ,useEffect,useRef} from 'react';
 import VideoPlayer from "@/components/modules";
 import { motion, AnimatePresence } from "framer-motion";
 import axios from 'axios';
@@ -9,6 +9,7 @@ interface ID{
 }
 
 const Module = () => {
+    
     const [chatVisible, setChatVisible] = useState(false);
     const [message, setMessage] = useState('');
     const [messages, setMessages] = useState<string[]>([]); // Array to store messages
@@ -32,17 +33,29 @@ const Module = () => {
     //     query : info
     //   });
   }
+  const chatRef = useRef<HTMLDivElement>(null);
+
+  const handleClickOutside = (event: MouseEvent) => {
+    if (chatRef.current && !chatRef.current.contains(event.target as Node)) {
+      setChatVisible(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      window.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
     return (
         <>
-            <div className="container mx-auto px-8 py-4">
+            <div className="container mx-auto px-8 py-4 bg-gradient-to-t from-black via-gray-800 to-white   ">
                 <h1 className="text-2xl font-bold my-4">Learning Modules</h1>
                 <VideoPlayer moduleid='2' onC = {handleClick}  />
             </div>
-            <div className="container mx-auto px-8 py-4">
-                <h1 className="text-lg font-bold my-4">An AI Enhanced Modules</h1>
-                <p className="my-4 px-4">
-                    In this class, you'll learn the basics of storytelling...
-                </p>
+            <div className="container mx-auto px-8 py-4" ref={chatRef}>
+                
                 <motion.img
                     src="/aii.png" // Make sure you have a chat icon image at this path
                     alt="Chat icon"

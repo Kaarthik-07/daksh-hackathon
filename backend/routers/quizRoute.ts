@@ -121,20 +121,28 @@ router.get('/results/:moduleID/:submoduleID/:score', async (req: Request, res: R
             // res.status(200).json({
             //     data: prompt
             // })
-            console.log(prompt);
+          //  console.log(prompt);
             
         }
 
         if (prompt) {
 
 
-            if (score >= 4) {
-                const result = await gptassist(prompt + prompt2);
+            if (score >= 8) {
+                const result = await gptassist(prompt + prompt1);
+               // console.log("the prompt is");
+                
+                //iconsole.log(result);
+                
                 if (result != null) {
-
+                    const ans = JSON.parse(result);
+                    console.log("the answer is ");
+                    
+                    console.log(ans);
+                    
                     return res.status(200).json({
                         statusCode: 200,
-                        data: result
+                        data: ans
                     })
 
                 }
@@ -151,12 +159,21 @@ router.get('/results/:moduleID/:submoduleID/:score', async (req: Request, res: R
 
             }
             else {
+                // const result = await gptassist(prompt + prompt2);
                 const result = await gptassist(prompt + prompt1);
+               // console.log("the prompt is");
+                
+                //iconsole.log(result);
+                
                 if (result != null) {
-                    console.log(result);
+                    const ans = JSON.parse(result);
+                    console.log("the answer is ");
+                    
+                    console.log(ans);
+                    
                     return res.status(200).json({
                         statusCode: 200,
-                        data: result
+                        data: ans
                     })
 
                 }

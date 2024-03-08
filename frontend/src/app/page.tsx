@@ -3,6 +3,8 @@ import { SpotlightPreview } from "@/components/hero";
 import  {BentoGridThirdDemo} from "../components/explore";
 import CardIndex from "@/components/cardIndex";
 import Footer from "@/components/Fotter";
+import ExampleLayoutComponent from "@/components/loading";
+import LoadingSpinner from "@/components/loading";
 
 const App = () =>{
   return(
@@ -24,7 +26,8 @@ const App = () =>{
     <br />
     <Footer />
     </div>
-    </>
+   <LoadingSpinner />
+        </>
 
 
   )

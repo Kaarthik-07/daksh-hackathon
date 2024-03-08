@@ -2,13 +2,14 @@
   type Question = {
     question: string;
     options: Record<string, string>;
+    
   };
   export interface QuizComponentProps {
     questions: Question[];
     question : string;
   }
 
-const QuizComponent: React.FC = ({ questions }:any) => {
+const QuizComponent: React.FC<QuizComponentProps> = ({ questions }:any) => {
     return (
 <>
 <div>

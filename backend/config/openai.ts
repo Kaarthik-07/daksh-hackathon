@@ -20,7 +20,7 @@ const gptassist = async (prompt:any) =>{
   organization: process.env.OPEN_API_KEY ||'org-Qvm1VgWg4Zby01dxdNjhKlmj' ,  
   apiKey: process.env.OPEN_API_ORG || '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'
 });
-        // console.log(prompt);
+         console.log(prompt);
         
          try{
 		 const response = await openai.completions.create({
@@ -29,7 +29,7 @@ const gptassist = async (prompt:any) =>{
 			 max_tokens : 2000,
 		})
         const data = response.choices[0].text.trim();
-		console.log(data);
+	//	console.log(data);
         return data;
 	}
 	catch(err){

@@ -41,18 +41,13 @@ interface ID{
   moduleid : string,
   onC : ()=>void,
 }
-const modules: Module[] = [
-  { id: 1, title: 'Module 1', videoSrc: "https://example.com/module-1.mp4" },
-  { id: 2, title: 'Module 2', videoSrc: 'https://example.com/module-2.mp4' },
-  { id: 3, title: 'Module 3', videoSrc: 'https://example.com/ai.mp4' },
-  // Corrected the IDs and video sources for uniqueness
-];
+
 
 const VideoPlayer: React.FC<ID> = ({moduleid , onC}) => {
-  const [currentVideo, setCurrentVideo] = useState<string>(modules[0].videoSrc);
+  const [currentVideo, setCurrentVideo] = useState<string>('https://firebasestorage.googleapis.com/v0/b/daksh-d0f8e.appspot.com/o/module1cl.mp4?alt=media&token=f6a6ddfe-0043-49f3-a0f8-4f554905dab6');
   const [moduleData, setModuleData] = useState<ModuleData[]>([]);
   const [courseData, setCourseData] = useState<CourseData | null>(null);
-
+  const [submoduleid , setsubmoduleid] = useState(3);
   
   useEffect(() => {
   const fetchData = async () => {
@@ -74,6 +69,29 @@ const VideoPlayer: React.FC<ID> = ({moduleid , onC}) => {
 
   fetchData();
 }, []);
+
+const handleVideoClick = async (module:number) =>{
+  await videoFetch(module);
+  setsubmoduleid(module);
+}
+
+const videoFetch = async(module:any) =>{
+  const submoduleId = module;
+  const modueleId = courseData?.id;
+
+  try{
+
+    const res = await axios.get(`http://localhost:6969/modules/video/${modueleId}/${submoduleId}`);
+   // console.log(res.data.url);
+    setCurrentVideo(res.data.url);
+    
+
+  }
+  catch(err){
+    console.error(err);
+    
+  }
+}
   const buttonVariants = {
     hover: { scale: 1.1, textShadow: "0px 0px 8px rgb(255,255,255)", transition: { duration: 0.3 } },
     tap: { scale: 0.9 }
@@ -83,8 +101,9 @@ const VideoPlayer: React.FC<ID> = ({moduleid , onC}) => {
     if(courseData){
     const res = await axios.get(`http://localhost:6969/modules/submodules/${courseData.id}`);
     if(res){
-       console.log(res.data.data);
+      // console.log(res.data.data);
        setModuleData(res.data.data);
+       
     }
     }
    }
@@ -95,9 +114,11 @@ const VideoPlayer: React.FC<ID> = ({moduleid , onC}) => {
   
   const ids = {
     moduleid : courseData?.id,
-    submoduleid : 3
+    submoduleid : submoduleid
   }
  
+  //console.log(submoduleid);
+  
  
   return (
     <>
@@ -127,7 +148,11 @@ const VideoPlayer: React.FC<ID> = ({moduleid , onC}) => {
          <div>
       {moduleData.map((module) => (
         <div key={module.id}>
-          <button className="p-6 text-left text-yellow-300 hover:text-black hover:bg-gray-100 rounded-md">
+          <button className="p-6 text-left text-yellow-300 hover:text-black hover:bg-gray-100 rounded-md"
+          onClick={() => 
+            handleVideoClick(module.id)
+          }
+          >
             {module.name}
           </button>
           
