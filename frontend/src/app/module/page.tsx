@@ -2,24 +2,41 @@
 import React, { useState } from 'react';
 import VideoPlayer from "@/components/modules";
 import { motion, AnimatePresence } from "framer-motion";
+import axios from 'axios';
+import { useRouter } from 'next/router';
+interface ID{
+    moduleid:string
+}
 
 const Module = () => {
     const [chatVisible, setChatVisible] = useState(false);
     const [message, setMessage] = useState('');
     const [messages, setMessages] = useState<string[]>([]); // Array to store messages
-
-    const handleSendMessage = (event: React.KeyboardEvent<HTMLInputElement>) => {
+   // const router = useRouter();
+    const handleSendMessage = async (event: React.KeyboardEvent<HTMLInputElement>) => {
         if (event.key === 'Enter' && message.trim() !== '') {
             setMessages([...messages, message]);
+             const res = await axios.post('http://localhost:6969/quiz/doubt' ,{
+                prompt : message
+             } );
+             setMessages([...messages , res.data.ans]);
+             console.log(res);
+             
             setMessage(''); // Clear the input field after sending a message
         }
     };
-
+  const  handleClick = () =>{
+    //   const info = {moduleId : 2 , submoduleId : 1};
+    //   router.push({
+    //     pathname : '/quiz',
+    //     query : info
+    //   });
+  }
     return (
         <>
             <div className="container mx-auto px-8 py-4">
                 <h1 className="text-2xl font-bold my-4">Learning Modules</h1>
-                <VideoPlayer />
+                <VideoPlayer moduleid='2' onC = {handleClick}  />
             </div>
             <div className="container mx-auto px-8 py-4">
                 <h1 className="text-lg font-bold my-4">An AI Enhanced Modules</h1>

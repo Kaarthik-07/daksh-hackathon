@@ -16,8 +16,8 @@ router.get('/', (req: Request, res: Response) => {
 })
 
 
-const prompt1 = 'make this questions a little harder along with options';
-const prompt2 = 'too difficult , make these questions a bit easier along with options';
+const prompt1 = 'make this questions a little harder along with options and return in json format';
+const prompt2 = 'too difficult , make these questions a bit easier along with options and return in json format';
 router.get('/:moduleID', async (req: Request, res: Response) => {
     const moduleID = req.params.moduleID;
     const client = await pool.connect();
@@ -46,11 +46,15 @@ router.get('/:moduleID', async (req: Request, res: Response) => {
     }
 })
 
-router.get('/submodulesquiz/:submoduleID', async (req: Request, res: Response) => {
+router.get('/:moduleID/:submoduleID', async (req: Request, res: Response) => {
+
     const submoduleID = req.params.submoduleID;
+    const moduleID = req.params.moduleID;
+   // console.log(moduleID , submoduleID);
+    
     const client = await pool.connect();
     try {
-        const response = await client.query(GetQuizBySubModuleId, [submoduleID]);
+        const response = await client.query(GetQusetions, [ moduleID, submoduleID ]);
         if (response) {
             return res.status(200).json({
                 data: response.rows
@@ -114,9 +118,11 @@ router.get('/results/:moduleID/:submoduleID/:score', async (req: Request, res: R
 
 
         if (response) {
-            res.status(200).json({
-                data: prompt
-            })
+            // res.status(200).json({
+            //     data: prompt
+            // })
+            console.log(prompt);
+            
         }
 
         if (prompt) {
@@ -135,7 +141,7 @@ router.get('/results/:moduleID/:submoduleID/:score', async (req: Request, res: R
                 else {
                     return res.status(404).json(
                         {
-                            statusCode: 500,
+                            statusCode: 404,
                             err: 'AI error'
                         }
                     )
@@ -157,7 +163,7 @@ router.get('/results/:moduleID/:submoduleID/:score', async (req: Request, res: R
                 else {
                     return res.status(404).json(
                         {
-                            statusCode: 500,
+                            statusCode: 404,
                             err: 'AI error'
                         }
                     )

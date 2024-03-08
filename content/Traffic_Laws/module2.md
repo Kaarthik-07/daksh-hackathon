@@ -1,6 +1,6 @@
-# Module 3: Traffic Signal Rules
+# Module 2: Traffic Signal Rules
 
-In Module 3 of our course "Mastering Traffic Rules and Laws in India," we will delve into the crucial topic of Traffic Signal Rules. Understanding and obeying traffic signals is fundamental to ensuring safe and orderly flow of traffic on Indian roads. Let's explore the key aspects of this module in detail.
+In Module 2 of our course "Mastering Traffic Rules and Laws in India," we will delve into the crucial topic of Traffic Signal Rules. Understanding and obeying traffic signals is fundamental to ensuring safe and orderly flow of traffic on Indian roads. Let's explore the key aspects of this module in detail.
 
 ## Understanding Different Traffic Signals
 
