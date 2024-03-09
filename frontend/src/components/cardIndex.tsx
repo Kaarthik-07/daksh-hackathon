@@ -12,7 +12,7 @@ export default function CardIndex() {
         {src:"/ai3.jpeg",title:"module 3"},
         {src:"/ai4.jpeg",title:"module 4"},
         {src:"/ai5.jpeg",title:"module 5"},
-        {src:"/ai1.jpeg",title:"module 6"},
+        {src:"/ai1.jpeg",title:"module 1"},
         {src:"/ai2.jpeg",title:"module 2"},
         {src:"/ai3.jpeg",title:"module 3"},
         {src:"/ai4.jpeg",title:"module 4"},
@@ -29,10 +29,10 @@ export default function CardIndex() {
     const [duration, setDuration] = useState(FAST_DURATION);
     let [ref, { width }] = useMeasure();
     const xTransition = useMotionValue(0);
-    const [mustFinish, setMustFinish] = useState(0);
+    const [mustFinish, setMustFinish] = useState(true);
 
     useEffect(() => {
-        let controls;
+       let controls:any;
 
         const finalPosition = -width / 2 - 8;
 
