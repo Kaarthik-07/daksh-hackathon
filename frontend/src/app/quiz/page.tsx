@@ -1,100 +1,170 @@
-// components/Quiz.tsx
+// Import necessary modules and components
 "use client"
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
+import QuizComponent from '@/components/quizcomponent';
+import ChatModule from '../../components/chat'; // Import the ChatModule component
 
-interface AnswerOption {
-  answerText: string;
-  isCorrect: boolean;
+// Define types and interfaces
+type Question = {
+  question: string;
+  options: Record<string, string>;
+};
+
+interface Result {
+  options: {
+    [key: string]: string;
+  };
+  question: string;
 }
 
-interface Question {
-  questionText: string;
-  answerOptions: AnswerOption[];
+interface Props {
+  questions: Result[];
 }
 
-interface Module {
-  moduleName: string;
-  questions: Question[];
-}
+// Define Results component
+const Results: React.FC<Props> = ({ questions }) => {
+  return (
+    <div>
+     </div>
+  );
+};
 
-const modules: Module[] = [
-  {
-    moduleName: "Module 1: Quiz for Introduction to Child Labour",
-    questions: [
-      {
-        questionText: "What is the definition of child labour?",
-        answerOptions: [
-          { answerText: "Children working in safe environments", isCorrect: false },
-          { answerText: "Children working within legal limits", isCorrect: false },
-          { answerText: "Children engaging in work that is harmful to their health and development", isCorrect: true },
-          { answerText: "Children volunteering their time to gain experience", isCorrect: false },
-        ],
-      },
-      {
-        questionText: "How prevalent is child labour globally?",
-        answerOptions: [
-          { answerText: "It only affects a small number of children in developing countries", isCorrect: false },
-          { answerText: "It is a rare occurrence in modern societies", isCorrect: false },
-          { answerText: "It impacts millions of children around the world", isCorrect: true },
-          { answerText: "It is a problem of the past", isCorrect: false },
-        ],
-      },
-      // More questions as needed
-    ],
-  },
-  // More modules as needed
-];
-
+// Define Quiz component
 const Quiz: React.FC = () => {
-  const [currentModuleIndex, setCurrentModuleIndex] = useState<number>(0);
-  const [currentQuestion, setCurrentQuestion] = useState<number>(0);
-  const [showScore, setShowScore] = useState<boolean>(false);
-  const [score, setScore] = useState<number>(0);
+  // Define state variables
+  const [moduleId, setmoduleId] = useState<number>(0);
+  const [submoduleId, setsubmoduleId] = useState<number>(0);
+  const [questions, setQuestions] = useState<Question[]>([]);
+  const [results, setResults] = useState<Result[]>([]);
+  const [score , setscore] = useState<number>(0);
+  const [count , setcount] = useState(0);
+  const [totalscore , settotalscore] = useState(0);
+  const [loading , setloading] = useState<boolean>(false);
 
-  const handleAnswerButtonClick = (isCorrect: boolean) => {
-    if (isCorrect) {
-      setScore(score + 1);
-    }
+  // Get search parameters and router
+  const searchParams = useSearchParams();
+  const info = searchParams.get('info');
+  const router = useRouter();
 
-    const nextQuestion = currentQuestion + 1;
-    if (nextQuestion < modules[currentModuleIndex].questions.length) {
-      setCurrentQuestion(nextQuestion);
-    } else {
-      setShowScore(true);
+  // Fetch quiz data on component mount
+  useEffect(() => {
+    const fetchQuizData = async () => {
+      try {
+        if (info) {
+          const { moduleid, submoduleid } = JSON.parse(info);
+          setmoduleId(moduleid);
+          setsubmoduleId(submoduleid);
+          const response = await axios.get(`http://localhost:6969/quiz/${moduleid}/${submoduleid}`);
+          if (response.data && response.data.data && response.data.data.length > 0) {
+            setQuestions(response.data.data[0].questions.questions);
+          }
+        }
+      } catch (error) {
+        console.error('Error fetching quiz data:', error);
+      }
+    };
+
+    fetchQuizData();
+  }, [info]);
+
+  // Handle click event for getting results
+  const handleClick = async (score:number) => {
+    setcount(count + 1);
+    if (count >= 2) {
+      if (totalscore >= 20) {
+        router.push('/sucess');
+      } else {
+        router.push('/notsucess');
+      }
+      return;
     }
+    setloading(true);
+
+    setTimeout(async () => {
+      try {
+        const response = await axios.get(`http://localhost:6969/quiz/results/${moduleId}/${submoduleId}/${score}`);
+        if (response && response.data) {
+          setResults(response.data.data[0].questions.questions);
+          settotalscore(totalscore + score);
+          setscore(0);
+          setloading(false);
+        }
+      } catch (err) {
+        console.error(err);
+        setscore(0);
+        setloading(false);
+      }
+    }, 6000);
   };
 
+  // Render Quiz component JSX
   return (
-    <div className="flex justify-center items-center h-screen bg-black">
-      <div className='app w-full max-w-md px-4 py-8 bg-gray-100 text-black shadow-md rounded-lg'>
-        {showScore ? (
-          <div className='score-section'>You scored {score} out of {modules[currentModuleIndex].questions.length}</div>
-        ) : (
-          <>
-            <div className='question-section'>
-              <div className='question-count'>
-                <span>Question {currentQuestion + 1}</span>/{modules[currentModuleIndex].questions.length}
+    
+    <>
+    
+      {loading ? (
+        <>
+        
+          <p className='text-center font-bold '>YOUR SCORE IS {score}</p>
+          {score >= 7 ? (
+            <>
+            <p className = 'text-center font-semibold'>you seem to be smart, get ready for a harder one. Are you ready?</p>
+            <video src="rizz.mp4"  autoPlay controls className="mx-auto mt-4 w-80 h-90" /> 
+            
+            </>
+          ) : (
+            <>
+            <p className = 'text-center font-semibold'>Better luck next time, try the next one.</p>
+            <video src="crying.mp4"  autoPlay controls className="mx-auto mt-4 w-80 h-90" /> 
+            </>
+          )}
+        </>
+      ) : (
+        <>
+          {questions.length > 0 && (
+            <div>
+              <h1>Module ID: {moduleId}</h1>
+              <h2>Submodule ID: {submoduleId}</h2>
+              <div className='p-14'>
+                <div>
+                  <h2>Quiz Questions</h2>
+                </div>
+                {questions.map((ele) => (
+                  <div className='bg-white divide-y divide-black rounded-xl' key={ele.question}>
+                    <h1 className='text-black font-bold rounded p-3 hover:cursor-pointer m-2 hover:text-black'>{'Q.' + ele.question}</h1>
+                    <p className='text-black rounded p-3 hover:bg-gradient-to-r from-indigo-500 hover:cursor-point hover:text-black m-2' onClick={() => { setscore(score + 3) }}>{'a. ' + ele.options['a']}</p>
+                    <p className='text-black rounded p-3 hover:bg-slate-400 hover:cursor-pointer hover:text-black m-2' onClick={() => { setscore(score + 1) }}>{'b. ' + ele.options['b']}</p>
+                    <p className='text-black rounded p-3 hover:bg-slate-400 hover:cursor-pointer hover:text-black m-2' onClick={() => { setscore(score + 5) }}>{'c. ' + ele.options['c']}</p>
+                    <p className='text-black rounded p-3 hover:bg-slate-400 hover:cursor-pointer hover:text-black m-2' onClick={() => { setscore(score + 0) }}>{'d. ' + ele.options['d']}</p>
+                  </div>
+                ))}
+                <div className='flex justify-center items-center'>
+                  <button className='p-4 bg-violet-500 rounded-md' onClick={() => handleClick(score)}>Get Results: {score}</button>
+                </div>
               </div>
-              <div className='question-text'>{modules[currentModuleIndex].questions[currentQuestion].questionText}</div>
             </div>
-            <div className='answer-section grid grid-cols-1 gap-4'>
-              {modules[currentModuleIndex].questions[currentQuestion].answerOptions.map((answerOption, index) => (
-                <motion.button
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  key={index}
-                  onClick={() => handleAnswerButtonClick(answerOption.isCorrect)}
-                  className='bg-blue-500 text-white p-4 rounded-lg flex justify-center items-center'
-                >
-                  {answerOption.answerText}
-                </motion.button>
+          )}
+
+          {results.length > 0 && (
+            <div className='p-14'>
+              {results.map((ele) => (
+                <div className='bg-white divide-y divide-black rounded-xl' key={ele.question}>
+                  <h1 className='text-black font-bold rounded p-3 hover:cursor-pointer m-2 hover:text-black'>{'Q.' + ele.question}</h1>
+                  <p className='text-black rounded p-3 hover:bg-slate-400 hover:cursor-pointer hover:text-black m-2' onClick={() => { setscore(score + 3) }}>{'a. ' + ele.options['a']}</p>
+                  <p className='text-black rounded p-3 hover:bg-slate-400 hover:cursor-pointer hover:text-black m-2' onClick={() => { setscore(score + 1) }}>{'b. ' + ele.options['b']}</p>
+                  <p className='text-black rounded p-3 hover:bg-slate-400 hover:cursor-pointer hover:text-black m-2' onClick={() => { setscore(score + 5) }}>{'c. ' + ele.options['c']}</p>
+                  <p className='text-black rounded p-3 hover:bg-slate-400 hover:cursor-pointer hover:text-black m-2' onClick={() => { setscore(score + 0) }}>{'d. ' + ele.options['d']}</p>
+                </div>
               ))}
             </div>
-          </>
-        )}
-      </div>
-    </div>
+          )}
+        </>
+      )}
+      <ChatModule />  
+    </>
   );
 };
 

@@ -2,7 +2,7 @@ import express from 'express';
 import { pool } from '../config/db';
 
 import { Request, Response } from 'express';
-import { authValidation } from '../middleware/authentication';
+
 import { GetUser, GetUserDashBoard } from '../queries/userQuery';
 import { GetMyPoints } from '../queries/leaderboardQuery';
 
@@ -13,7 +13,7 @@ const BASE = '/user';
 router.get("/", (req: Request, res: Response) => {
     res.send('this route is working');
 })
-router.get('/profile/:user_id', authValidation, async (req: Request, res: Response) => {
+router.get('/profile/:user_id',  async (req: Request, res: Response) => {
     const user_id = req.params.user_id;
     const client = await pool.connect();
 
@@ -73,7 +73,7 @@ router.get('/dashboard/:userName', async (req: Request, res: Response) => {
     }
 })
 
-router.get('/my-points/:user_id', authValidation, async (req: Request, res: Response) => {
+router.get('/my-points/:user_id',  async (req: Request, res: Response) => {
 
     const userId = req.params.user_id;
     const client = await pool.connect();

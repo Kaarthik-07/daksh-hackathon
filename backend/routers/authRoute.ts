@@ -6,7 +6,7 @@ import { PrismaClient } from '@prisma/client';
 import { Request, Response } from 'express';
 import { generateotp } from '../lib/utils/generateOtp';
 import { Login, Signup } from '../lib/interfaces';
-import { sendthroughMail } from '../lib/utils/sendMail';
+import { sendthroughMail , sendConfirmationMail } from '../lib/utils/sendMail';
 import { validateLogin  , validateSignUp} from '../validators';
 
 const prisma = new PrismaClient();
@@ -39,12 +39,17 @@ router.post('/signup', validateSignUp ,  async (req: Request, res: Response) => 
         )
 
         if (user) {
-            res.status(201).json(
+            const mail = await sendConfirmationMail(email , username);
+            if(mail != null || mail != undefined){
+                console.log('mail sent successfully');
+                
+            return res.status(201).json(
                 {
                     statusCode: 201,
-                    message: 'user created successfully'
+                    message: 'user created successfully & mail sent'
                 }
             )
+            }
         }
         else {
             res.status(500).json(

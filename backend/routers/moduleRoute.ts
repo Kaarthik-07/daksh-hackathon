@@ -1,9 +1,8 @@
 import express from 'express';
 import { pool } from '../config/db';
-import { GetSubmodules  , GetLeaderboard ,GetModulesById , GetModules } from '../queries/moduleQuery';
-import { GetRanking } from '../queries/leaderboardQuery';
+import { GetSubmodules  , GetLeaderboard ,GetModulesById , GetModules  , GetVideo} from '../queries/moduleQuery';
+
 import { Request , Response } from 'express';
-import { authValidation } from '../middleware/authentication';
 
 
 const BASE = '/modules';
@@ -46,7 +45,7 @@ router.get('/' , async (req : Request , res : Response) =>{
     }
 })
 
-router.get('/:module_id' , authValidation ,  async (req : Request , res : Response) =>{
+router.get('/:module_id' ,   async (req : Request , res : Response) =>{
     const module_id = req.params.module_id;
     const client = await pool.connect();
     try{
@@ -83,7 +82,7 @@ router.get('/:module_id' , authValidation ,  async (req : Request , res : Respon
 
 })
 
-router.get('/submodules/:module_id', authValidation ,  async (req: Request, res: Response) => {
+router.get('/submodules/:module_id',   async (req: Request, res: Response) => {
     const module_id = req.params.module_id;
     const client = await pool.connect();
 
@@ -112,41 +111,40 @@ router.get('/submodules/:module_id', authValidation ,  async (req: Request, res:
     }
 });
 
-// router.get('/leaderboard',  async (req: Request, res: Response) => {
-//     const client = await pool.connect();
-//     let data;
-//     try{
-//     const result = await client.query(GetRanking);
-//     if(result.rows){
-//         data = result.rows;
-//         return res.status(201).json({
-//             statusCode : 201,
-//             data : data
-//         })
-//     }
-//     else{
-//         return res.status(200).json({
-//             msg : 'Still not updated pls wait till the weekend'
-//         })
-//     }
+router.get('/video/:moduleID/:submoduleID' , async(req: Request , res : Response) =>{
+    const module_id = req.params.moduleID;
+    const submodule_id = req.params.submoduleID;
+    const client = await pool.connect();
 
-//     }
-//     catch(err){
-//         return res.status(500).json(
-//             {
-//                 err : 'Internal Server Error'
-//             }
-//         )
-//     }
-//     finally{
-//         client.release();
-//     }
+    try{
 
-     
-// });
+        const response = await client.query(GetVideo , [module_id , submodule_id]);
+        if(response){
+          //  const data = response.rows;
+            return res.status(200).json(
+                {
+                    statusCode : 200 ,
+                    url : response.rows[0].animations[0]
+                }
+            )
+        }
+        else{
+            return res.status(404).json({
+                statusCode : 404,
+                err : 'cant fetch'
+            })
+        }
 
+    }
+    catch(err){
+        return res.status(500).json(
+            {
+                err : 'Error'
+            }
+        )
 
-
+    }
+})
 const MODULE = {
     BASE, 
     router

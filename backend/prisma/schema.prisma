@@ -37,6 +37,7 @@ model Module {
   total_points   Int              @default(100)
   earned_points  Int              @default(0)
   content        Json 
+  quiz           Quiz[]
   subModuels     Submodule[]
   ModuleProgress ModuleProgress[]
 }
@@ -48,7 +49,7 @@ model Submodule {
   animations        String[]
   module            Module              @relation(fields: [moduleID], references: [id])
   content           Json
-  moduleID          Int                 @unique
+  moduleID          Int                 
   quiz              Quiz[]
   SubmoduleProgress SubmoduleProgress[]
 }
@@ -56,8 +57,10 @@ model Submodule {
 model Quiz {
   id          Int       @unique @default(autoincrement())
   submodule   Submodule @relation(fields: [submoduleID], references: [id])
-  submoduleID Int       @unique
-  questions   String[]
+  module      Module   @relation(fields: [moduleID] , references: [id])
+  moduleID    Int
+  submoduleID Int       
+  questions   Json 
 }
 
 model ModuleProgress {
@@ -66,6 +69,8 @@ model ModuleProgress {
   userId            String              @unique
   module            Module              @relation(fields: [moduleId], references: [id])
   moduleId          Int
+  total_points      Int
+  earned_points     Int
   submoduleProgress SubmoduleProgress[] // Relationship to track submodule progress for each user's module
   completed         Boolean             @default(false)
 }
@@ -74,6 +79,8 @@ model SubmoduleProgress {
   id               Int            @unique @default(autoincrement())
   moduleProgress   ModuleProgress @relation(fields: [moduleProgressId], references: [id])
   moduleProgressId Int
+  total_points     Int
+  earned_points    Int
   submodule        Submodule      @relation(fields: [submoduleId], references: [id])
   submoduleId      Int
   completed        Boolean        @default(false)

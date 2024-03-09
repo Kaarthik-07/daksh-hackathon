@@ -1,7 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
-import { Auth , User , Module  , LeaderBoard} from '../routers';
+import { Auth , User , Module  , LeaderBoard , AI , QUIZ} from '../routers';
 import { errorHandler } from '../middleware/errorHandler';
 dotenv.config();
 
@@ -21,6 +21,8 @@ app.use(Auth.BASE , Auth.router);
 app.use(User.BASE , User.router);
 app.use(Module.BASE , Module.router);
 app.use(LeaderBoard.BASE , LeaderBoard.router);
+app.use(AI.BASE , AI.router);
+app.use(QUIZ.BASE , QUIZ.router);
 app.use(errorHandler);
 
 app.listen(PORT , () =>{
@@ -28,3 +30,4 @@ app.listen(PORT , () =>{
     
 });
 
+export default app;

@@ -4,6 +4,7 @@ import  {BentoGridThirdDemo} from "../components/explore";
 import CardIndex from "@/components/cardIndex";
 import Footer from "@/components/Fotter";
 
+
 const App = () =>{
   return(
     <>
@@ -24,7 +25,8 @@ const App = () =>{
     <br />
     <Footer />
     </div>
-    </>
+   
+        </>
 
 
   )

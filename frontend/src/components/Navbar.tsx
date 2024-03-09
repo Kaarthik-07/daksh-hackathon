@@ -16,6 +16,7 @@ const Navbar = () => {
               <motion.img
                 alt="Logo"
                 src="/aii.png"
+                //@ts-ignore
                 layout="fill"
                 objectFit="cover"
                 className="rounded-md"
@@ -29,14 +30,14 @@ const Navbar = () => {
               whileHover={{ scale: 0.9 }}
               whileTap={{ scale: 1 }}
             >
-              Create Next App
+              Edu AI
             </motion.h1>
           </a>
         </div>
                       
         <nav className="hidden md:flex space-x-10">
-          <a className="text-gray-400 hover:text-white transition duration-300" href="/components">Components</a>
-          <a className="text-gray-400 hover:text-white transition duration-300" href="/pricing">Pricing</a>
+          <a className="text-gray-400 hover:text-white transition duration-300" href="/components">Modules</a>
+          <a className="text-gray-400 hover:text-white transition duration-300" href="/pricing">About</a>
           <a className="text-gray-400 hover:text-white transition duration-300" href="/">Community</a>
         </nav>
         <div className="flex items-center md:gap-4">                     
