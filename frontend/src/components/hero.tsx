@@ -13,6 +13,12 @@
         />
         <div className=" p-4 max-w-7xl  mx-auto relative z-10  w-full pt-20 md:pt-0">
           <h1 className="text-4xl md:text-7xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50">
+<<<<<<< HEAD
+                Unleash the power <br/>of young champions through <br/>gamified modules
+          </h1>
+          <p className="mt-4 font-normal text-base text-neutral-300 max-w-lg text-center mx-auto">
+            Young Champions are at the forefront of innovation.Get ready to explore fun and learn with our gamified, interactive modules and quizzes!
+=======
           Edu AI
           <br /> 
          <span className="text-2xl"> Revolutionizing Learning with Artificial Intelligence
@@ -20,6 +26,7 @@
           </h1>
           <p className="mt-4 font-normal text-base text-neutral-300 max-w-lg text-center mx-auto">
           Welcome to EduAI: Transformative AI-Powered Education for Kids! Embark on an interactive journey where learning meets adventure through captivating narratives and rich graphics. Join us in shaping the future of education!
+>>>>>>> 1cdc830c08190346ae303e65cf092eed0e285e12
           </p>
         </div>
         <h1 className="text-red-500"></h1>

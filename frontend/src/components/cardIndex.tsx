@@ -32,7 +32,7 @@ export default function CardIndex() {
     const [mustFinish, setMustFinish] = useState(true);
 
     useEffect(() => {
-        let controls;
+       let controls:any;
 
         const finalPosition = -width / 2 - 8;
 
