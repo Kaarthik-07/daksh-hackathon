@@ -190,29 +190,29 @@ const SkeletonFour = () => {
         className="h-full w-1/3 rounded-2xl bg-white p-4 dark:bg-black dark:border-white/[0.1] border border-neutral-200 flex flex-col items-center justify-center"
       >
         <Image
-          src="https://pbs.twimg.com/profile_images/1417752099488636931/cs2R59eW_400x400.jpg"
+          src="/child_image1.jpg"
           alt="avatar"
           height="100"
           width="100"
           className="rounded-full h-10 w-10"
         />
         <p className="sm:text-sm text-xs text-center font-semibold text-neutral-500 mt-4">
-          Just code in Vanilla Javascript
+          I love using this platform
         </p>
-        <p className="border border-red-500 bg-red-100 dark:bg-red-900/20 text-red-600 text-xs rounded-full px-2 py-0.5 mt-4">
-          Delusional
+        <p className="border border-green-500 bg-red-100 dark:bg-green-900/20 text-green-600 text-xs rounded-full px-2 py-0.5 mt-4">
+          Happy
         </p>
       </motion.div>
       <motion.div className="h-full relative z-20 w-1/3 rounded-2xl bg-white p-4 dark:bg-black dark:border-white/[0.1] border border-neutral-200 flex flex-col items-center justify-center">
         <Image
-          src="https://pbs.twimg.com/profile_images/1417752099488636931/cs2R59eW_400x400.jpg"
+          src="/child_image1.jpg"
           alt="avatar"
           height="100"
           width="100"
           className="rounded-full h-10 w-10"
         />
         <p className="sm:text-sm text-xs text-center font-semibold text-neutral-500 mt-4">
-          Tailwind CSS is cool, you know
+          Best platform i have used do far
         </p>
         <p className="border border-green-500 bg-green-100 dark:bg-green-900/20 text-green-600 text-xs rounded-full px-2 py-0.5 mt-4">
           Sensible
@@ -223,16 +223,16 @@ const SkeletonFour = () => {
         className="h-full w-1/3 rounded-2xl bg-white p-4 dark:bg-black dark:border-white/[0.1] border border-neutral-200 flex flex-col items-center justify-center"
       >
         <Image
-          src="https://pbs.twimg.com/profile_images/1417752099488636931/cs2R59eW_400x400.jpg"
+          src="/child_image1.jpg"
           alt="avatar"
           height="100"
           width="100"
           className="rounded-full h-10 w-10"
         />
         <p className="sm:text-sm text-xs text-center font-semibold text-neutral-500 mt-4">
-          I love angular, RSC, and Redux.
+          I enjoy learning through through edu ai
         </p>
-        <p className="border border-orange-500 bg-orange-100 dark:bg-orange-900/20 text-orange-600 text-xs rounded-full px-2 py-0.5 mt-4">
+        <p className="border border-green-500 bg-orange-100 dark:bg-green-900/20 text-green-600 text-xs rounded-full px-2 py-0.5 mt-4">
           Helpless
         </p>
       </motion.div>
@@ -276,7 +276,7 @@ const SkeletonFive = () => {
         className="flex flex-row rounded-2xl border border-neutral-100 dark:border-white/[0.2] p-2  items-start space-x-2 bg-white dark:bg-black"
       >
         <Image
-          src="https://pbs.twimg.com/profile_images/1417752099488636931/cs2R59eW_400x400.jpg"
+          src="/child_image1.jpg"
           alt="avatar"
           height="100"
           width="100"
@@ -299,10 +299,10 @@ const SkeletonFive = () => {
 };
 const items = [
   {
-    title: "AI Content Generation",
+    title: "Immersive Visual Learning",
     description: (
       <span className="text-sm">
-        Experience the power of AI in generating unique content.
+        Learning made more interesting by stunning ad relevant visuals. Don't just learn but also learn its applications in the real world scenarios
       </span>
     ),
     header: <SkeletonOne />,
@@ -310,10 +310,10 @@ const items = [
     icon: <IconClipboardCopy className="h-4 w-4 text-neutral-500" />,
   },
   {
-    title: "Automated Proofreading",
+    title: "Smart Quiz",
     description: (
       <span className="text-sm">
-        Let AI handle the animated videos.
+        Forget one-size-fits-all! Smart Quiz adapts to you, offering the perfect challenge to keep  you learning.
       </span>
     ),
     header: <SkeletonTwo />,
@@ -321,10 +321,10 @@ const items = [
     icon: <IconFileBroken className="h-4 w-4 text-neutral-500" />,
   },
   {
-    title: "Contextual Suggestions",
+    title: "Smart module",
     description: (
       <span className="text-sm">
-        Get AI-powered suggestions based on your Learning Context.
+        Never get lost in the learning jungle! Our AI buddy suggests exciting modules just for you, based on your interests and progress
       </span>
     ),
     header: <SkeletonThree />,
@@ -332,10 +332,10 @@ const items = [
     icon: <IconSignature className="h-4 w-4 text-neutral-500" />,
   },
   {
-    title: "Sentiment Analysis",
+    title: "Here what they say",
     description: (
       <span className="text-sm">
-        Understand the sentiment of your text with AI analysis.
+       
       </span>
     ),
     header: <SkeletonFour />,
@@ -344,10 +344,10 @@ const items = [
   },
 
   {
-    title: "Text Summarization",
+    title: "Meet Our AI chat bot Dora",
     description: (
       <span className="text-sm">
-        Summarize your lengthy documents with AI technology.
+        Don't wanna toggle around multiple platforms to clarify your doubts ? Use DORA to get your doubts and concerns cleared
       </span>
     ),
     header: <SkeletonFive />,

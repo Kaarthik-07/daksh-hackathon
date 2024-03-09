@@ -7,18 +7,7 @@ interface CarouselProps {
     image: string;
     title: string;
 }
-const title =[
-    "AI",
-    "AI",
-    "AI",
-    "AI",
-    "AI",
-    "AI",
-    "AI",
-    "AI",
-    "AI",
-    "AI",
-]
+
 
 const Carousel: React.FC<CarouselProps> = ({ image,title }) => {
     const [showOverlay, setShowOverlay] = React.useState(true); 
@@ -38,16 +27,19 @@ const Carousel: React.FC<CarouselProps> = ({ image,title }) => {
                         exit={{ opacity: 0 }}
                     >
                         <div className='absolute bg-black pointer-events-none opacity-50 h-full' />
-
+                                            <a href="/module" className="cursor-pointer">   
                                                 <motion.h1
-                                                    className='bg-white font-semibold text-sm z-10 px-3 py-2 rounded-full flex items-center gap[0.5 ch] hover:opacity-75'
+                                                    className='bg-white text-black font-semibold text-sm z-10 px-3 py-2 m-2 rounded-full flex items-center gap[0.5 ch] hover:opacity-75'
                                                     initial={{ y: 10 }}
                                                     animate={{ y: 0 }}
                                                     exit={{ y: 10 }}
                                                 >{title}
-                                                    <a href="/module" className='text-black'>Explore now</a>
+                                                    
                                                     <img src="/arrow.png" className='w-4 h-4' alt="Arrow" />
+                                                   
+                                                   
                                                 </motion.h1>
+                                                </a>
 
                     </motion.div>
                 )}

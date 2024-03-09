@@ -48,7 +48,7 @@ const VideoPlayer: React.FC<ID> = ({moduleid , onC}) => {
   const [moduleData, setModuleData] = useState<ModuleData[]>([]);
   const [courseData, setCourseData] = useState<CourseData | null>(null);
   const [submoduleid , setsubmoduleid] = useState(3);
-  
+   
   useEffect(() => {
   const fetchData = async () => {
     try {
@@ -73,6 +73,7 @@ const VideoPlayer: React.FC<ID> = ({moduleid , onC}) => {
 const handleVideoClick = async (module:number) =>{
   await videoFetch(module);
   setsubmoduleid(module);
+  
 }
 
 const videoFetch = async(module:any) =>{
@@ -114,7 +115,9 @@ const videoFetch = async(module:any) =>{
   
   const ids = {
     moduleid : courseData?.id,
-    submoduleid : submoduleid
+    submoduleid : submoduleid,
+    moduleName : courseData?.name,
+   
   }
  
   //console.log(submoduleid);
@@ -131,7 +134,7 @@ const videoFetch = async(module:any) =>{
           <div>
             <motion.button
               key={courseData.id}
-              className="p-6 text-left hover:text-black hover:bg-gray-100 rounded-md"
+              className="p-6 text-left hover:text-black hover:bg-gray-100 rounded-md "
               onClick={() => {}}
               variants={buttonVariants}
               whileHover="hover"
@@ -182,7 +185,7 @@ const videoFetch = async(module:any) =>{
       <div>
       {courseData && (
         <div className='text-white'>
-          <h1>{courseData.name}</h1>
+          <h1 className='text-2xl'>{courseData.name}</h1>
           <p>{courseData.description}</p>
          
         </div>
