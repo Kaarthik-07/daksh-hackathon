@@ -1,6 +1,6 @@
    <div align="center">
-  <img src="https://github.com/images/modules/site/copilot/productivity-bg-head.png" width="150" alt="Dora AI" style="margin-right: 50px;" />
-  <img src="https://github.com/Kaarthik-07/daksh-hackathon/assets/132292791/d9f1da2a-bedb-48bf-9790-b433d28fc6a1" width="150" alt="logo-oneAPI-color" />
+  <img src="https://github.com/images/modules/site/copilot/productivity-bg-head.png" width="100" alt="Dora AI" style="margin-right: 50px;" />
+  <img src="https://github.com/Kaarthik-07/daksh-hackathon/assets/132292791/d9f1da2a-bedb-48bf-9790-b433d28fc6a1" width="80" style="margin-right: 50px alt="logo-oneAPI-color" />
 </div>
 
 # 🌈 Dora AI: A New Dawn in Legal Education for the Youth
@@ -78,20 +78,24 @@ Intel CPUs are at the heart of modern computing and provide the processing power
 - **Optimization**: Features like Hyper-Threading and Turbo Boost optimize CPU usage, essential for demanding NLP workloads.
 
 ## OneDNN: Deep Learning Acceleration
-OneDNN, part of the Intel oneAPI toolkit, provides deep learning optimizations that boost performance for APIs. Key advantages include:
-![WhatsApp Image 2024-03-10 at 04 23 25_14a16a67](https://github.com/Kaarthik-07/daksh-hackathon/assets/132292791/c0b70ad1-863e-494e-abcd-30d67bf05461)
-
-
+OneDNN, part of the Intel oneAPI toolkit, provides deep learning optimizations that boost performance for APIs.
+Key advantages include:
 - **Speed**: OneDNN's optimized routines for deep learning primitives accelerate computations for faster API responses.
 - **Efficiency**: It optimizes memory usage and computational steps, reducing resource requirements.
 
-## Usage Scenarios Highlighting Intel and OneDNN Advantages
+## Usage Of IntelOneAPI in our product:
 
-- **Real-Time Language Translation APIs**: For services that offer immediate translation, the combination of Intel CPUs and OneDNN ensures low-latency responses, even under heavy traffic.
-- **Voice-Activated Assistants**: Optimizations are crucial for the quick processing of natural language queries and delivering real-time responses.
-- **Financial Text Analysis Services**: Handling large volumes of financial documents for sentiment analysis or risk assessment can be resource-intensive. Intel and OneDNN optimizations help manage this load efficiently.
-- **Healthcare Data Processing**: When dealing with sensitive and rapid healthcare diagnostics through NLP, every second counts. Optimized APIs contribute to faster and more reliable patient data analysis.
-- ![WhatsApp Image 2024-03-10 at 04 23 35_459e2b63](https://github.com/Kaarthik-07/daksh-hackathon/assets/132292791/96ffdb2d-756a-41d5-8b39-aa72ab4a5b8b)
+We used hugginface/intel accelerated text-generation model intel/neural-chat for acheiving text-generation in our project and achieving better response time and accuracy
+
+## Performance Comparision
+
+The following graphs illustrate the substantial performance improvements achieved by integrating Intel® oneAPI libraries and frameworks into our models:
+
+1. comparing execution time between normal gpt-3.5 text-generation model and intel/hugginface neural-chat model
+   ![WhatsApp Image 2024-03-10 at 04 23 25_14a16a67](https://github.com/Kaarthik-07/daksh-hackathon/assets/132292791/c0b70ad1-863e-494e-abcd-30d67bf05461)
+   
+2. comparing the no.of tokens generated between normal gpt-3.5 and intel/hugginface neural-chat model
+   ![WhatsApp Image 2024-03-10 at 04 23 35_459e2b63](https://github.com/Kaarthik-07/daksh-hackathon/assets/132292791/96ffdb2d-756a-41d5-8b39-aa72ab4a5b8b)
 
 
 ## In Action: OneDNN with Intel CPUs
@@ -137,7 +141,7 @@ Each technology is carefully chosen to ensure that our platform is built upon a 
 Building "Dora AI" was a learning journey in itself. Here's how we embraced the learning process:
 
 - **Hands-on experience** with cutting-edge technologies like Next.js, React, and Tailwind CSS to build the front end of the platform.
-- Learning to integrate **GPT-3.5 AI** effectively, to dynamically generate content and adapt to users' learning styles.
+- Learning to integrate **ML MODELS** effectively, to dynamically generate content and adapt to users' learning styles.
 - Understanding and implementing **best practices in software development** to create a scalable and maintainable codebase.
 - Engaging with the **open-source community** for insights, which significantly accelerated our learning curve.
 - Regular **peer-reviews** and **feedback sessions** that helped us refine our approach and learn collaboratively.
@@ -151,7 +155,11 @@ Click the image below to watch the prototype video and see our product in action
 <div align="center">
    
 
-https://github.com/Kaarthik-07/daksh-hackathon/assets/132292791/ccb19790-df51-4f3a-9acc-e8132f029350
+
+
+
+
+https://github.com/Kaarthik-07/daksh-hackathon/assets/127304665/420f4438-b437-4922-9c63-56ae734498ad
 
 
 </div>
