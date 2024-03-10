@@ -149,7 +149,11 @@ We are excited to present a visual walkthrough of our latest prototype. This vid
 Click the image below to watch the prototype video and see our product in action. We welcome your feedback and suggestions as we continue to improve and refine our prototype.
 
 <div align="center">
-    <img src="https://github.com/Kaarthik-07/daksh-hackathon/assets/132292791/44228d20-b752-4fcd-8c9d-015adda24e28" width="500" alt="Prototype Video Thumbnail"/>
+   
+
+https://github.com/Kaarthik-07/daksh-hackathon/assets/132292791/ccb19790-df51-4f3a-9acc-e8132f029350
+
+
 </div>
 
 We hope you find the demonstration informative and insightful. Thank you for your interest in our project!
@@ -158,6 +162,9 @@ We hope you find the demonstration informative and insightful. Thank you for you
 ## Conclusion
 
 Utilizing Intel CPUs and OneDNN for your API infrastructure provides a solid foundation for delivering high-performance NLP services. They ensure that applications not only run faster but also more efficiently, addressing the demanding needs of today's data-driven world.
+
+
+
 
 
 
