@@ -38,17 +38,6 @@
 - **🌱 Personalized Learning Journey:** Benefit from an AI-driven system that personalizes content to reinforce learning and understanding.
 - **💡 Engagement and Motivation:** Earn rewards through module completion and quiz performance, promoting a positive societal impact.
 
-## 🎉 Getting Started
-
-### Step 1: Visit Our Website
-Navigate to [Dora AI's website](#) to access our platform.
-
-### Step 2: Sign Up for Free
-Create an account to embark on your educational journey.
-
-### Step 3: Begin Learning
-Select a module to start learning at your own pace.
-
 ## 💡 Why Dora AI?
 
 - **Accessible Education:** Our platform is designed to be inclusive, offering every child the opportunity to learn about their rights.
@@ -123,6 +112,8 @@ Technologies and tools that empower "Dora AI" to deliver an interactive and enri
 ![Express.js](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge)
 ![Prisma](https://img.shields.io/badge/Prisma-3982CE?style=for-the-badge&logo=Prisma&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
+![Hugging Face](https://img.shields.io/badge/Hugging%20Face-FF0000?style=for-the-badge&logo=huggingface&logoColor=white)
+
 
 Each technology is carefully chosen to ensure that our platform is built upon a foundation of performance, scalability, and innovation.
 
@@ -131,7 +122,6 @@ Each technology is carefully chosen to ensure that our platform is built upon a 
 "Dora AI" is not just a project; it's a culmination of our vision for the future of education where legal knowledge is accessible and engaging for children:
 
 - A **comprehensive educational platform** aimed at teaching children about their legal rights through interactive learning experiences.
-- An **adaptive learning system** that tailors content difficulty based on the user's performance, ensuring personalized education paths.
 - A series of **engaging modules and quizzes** designed to make learning about legal rights both fun and informative.
 - A **user-friendly interface** that provides a seamless and intuitive experience for children of ages 8-16 years.
 - Utilization of the **GPT-3.5 AI model** to generate educational content and questions, demonstrating the practical use of AI in learning.
@@ -143,9 +133,6 @@ Building "Dora AI" was a learning journey in itself. Here's how we embraced the 
 - **Hands-on experience** with cutting-edge technologies like Next.js, React, and Tailwind CSS to build the front end of the platform.
 - Learning to integrate **ML MODELS** effectively, to dynamically generate content and adapt to users' learning styles.
 - Understanding and implementing **best practices in software development** to create a scalable and maintainable codebase.
-- Engaging with the **open-source community** for insights, which significantly accelerated our learning curve.
-- Regular **peer-reviews** and **feedback sessions** that helped us refine our approach and learn collaboratively.
-- Continuous **research and development** to keep abreast of the latest educational strategies and technological advancements.
 # Welcome to Our Prototype Demonstration
 
 We are excited to present a visual walkthrough of our latest prototype. This video encapsulates the features, the user experience, and the innovative solutions our product offers. 
