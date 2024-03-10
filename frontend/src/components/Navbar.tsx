@@ -31,7 +31,7 @@ const Navbar = () => {
               whileHover={{ scale: 0.9 }}
               whileTap={{ scale: 1 }}
             >
-              Edu AI
+              Dora AI
             </motion.h1>
           </a>
         </div>
