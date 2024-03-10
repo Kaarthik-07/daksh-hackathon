@@ -132,7 +132,7 @@ const videoFetch = async(module:any) =>{
         <div className="w-full lg:w-1/4 flex flex-col">
           {courseData && 
           <div>
-            <motion.button
+            {/* <motion.button
               key={courseData.id}
               className="p-6 text-left hover:text-black hover:bg-gray-100 rounded-md "
               onClick={() => {}}
@@ -142,7 +142,7 @@ const videoFetch = async(module:any) =>{
             >
               {courseData.name}
               
-            </motion.button>
+            </motion.button> */}
             <button className="p-6 text-left hover:text-black hover:bg-gray-100 rounded-md" onClick={() => fetchSubmodules(courseData.id)}>
                SUBMODULES
             </button>

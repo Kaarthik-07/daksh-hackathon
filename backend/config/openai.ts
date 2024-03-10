@@ -17,8 +17,8 @@ import OpenAI from 'openai';
 
 const gptassist = async (prompt:any) =>{
         const openai = new OpenAI({
-  organization: process.env.OPEN_API_KEY ||'org-Qvm1VgWg4Zby01dxdNjhKlmj' ,  
-  apiKey: process.env.OPEN_API_ORG || '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'
+  organization: process.env.OPEN_API_KEY ,  
+  apiKey: process.env.OPEN_API_ORG 
 });
          console.log(prompt);
         

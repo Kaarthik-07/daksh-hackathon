@@ -51,7 +51,7 @@ const Module = () => {
     return (
         <>
             <div className="container mx-auto px-8 py-4 bg-black">
-                <h1 className="text-2xl font-bold my-4">Learning Modules</h1>
+                <h1 className="text-2xl font-bold my-4">Child Modules</h1>
                 <VideoPlayer moduleid='2' onC = {handleClick}  />
             </div>
             <div className="container mx-auto px-8 py-4" ref={chatRef}>
