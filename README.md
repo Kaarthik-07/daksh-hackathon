@@ -1,10 +1,10 @@
-# 🌈 Dora AI: A New Dawn in Legal Education for the Youth
- ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg) ![Forks](https://img.shields.io/badge/License-MIT-red.svg) ![Contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)
-
-<div align="center">
-    <img src="https://github.com/images/modules/site/copilot/productivity-bg-head.png" width="150" alt="Dora AI">
+   <div align="center">
+  <img src="https://github.com/images/modules/site/copilot/productivity-bg-head.png" width="100" alt="Dora AI" style="margin-right: 50px;" />
+  <img src="https://github.com/Kaarthik-07/daksh-hackathon/assets/132292791/d9f1da2a-bedb-48bf-9790-b433d28fc6a1" width="80" style="margin-right: 50px alt="logo-oneAPI-color" />
 </div>
 
+# 🌈 Dora AI: A New Dawn in Legal Education for the Youth
+![Forks](https://img.shields.io/badge/License-MIT-red.svg) ![Contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)
 
 <p>
 <details>
@@ -68,17 +68,45 @@ Select a module to start learning at your own pace.
 
 ---
 
-Embracing "Dora AI" in these scenarios not only enhances learning experiences but also paves the way for a future where every child is empowered with the knowledge to thrive as respectful, informed citizens. Join us on this transformative journey.
+These experiences have not only shaped "Dora AI" but also our team's expertise and passion for education technology.
+# Optimizing APIs with Intel CPUs and OneDNN
 
-## 🌟 Impact
+## Intel CPUs: High-Performance Processing
+Intel CPUs are at the heart of modern computing and provide the processing power required for high-speed data operations and machine learning tasks. Key benefits for APIs include:
 
-Our website has made significant strides in achieving our mission to [briefly state your mission]. Here are some key highlights and metrics that showcase the impact of our platform:
+- **Concurrency**: Intel CPUs efficiently manage multiple tasks, making them ideal for concurrent API requests.
+- **Optimization**: Features like Hyper-Threading and Turbo Boost optimize CPU usage, essential for demanding NLP workloads.
 
-### 🌍 Real-World Impact
-- **Testimonials:** "This platform has changed the way I approach learning. It's not just about memorization; it's about truly understanding and applying knowledge." - [User Name]
-- **Community Projects:** Our users have initiated over W community projects, applying what they've learned to make a real difference.
+## OneDNN: Deep Learning Acceleration
+OneDNN, part of the Intel oneAPI toolkit, provides deep learning optimizations that boost performance for APIs.
+Key advantages include:
+- **Speed**: OneDNN's optimized routines for deep learning primitives accelerate computations for faster API responses.
+- **Efficiency**: It optimizes memory usage and computational steps, reducing resource requirements.
+
+## Usage Of IntelOneAPI in our product:
+
+We used hugginface/intel accelerated text-generation model intel/neural-chat for acheiving text-generation in our project and achieving better response time and accuracy
+
+## Performance Comparision
+
+The following graphs illustrate the substantial performance improvements achieved by integrating Intel® oneAPI libraries and frameworks into our models:
+
+1. comparing execution time between normal gpt-3.5 text-generation model and intel/hugginface neural-chat model
+   ![WhatsApp Image 2024-03-10 at 04 23 25_14a16a67](https://github.com/Kaarthik-07/daksh-hackathon/assets/132292791/c0b70ad1-863e-494e-abcd-30d67bf05461)
+   
+2. comparing the no.of tokens generated between normal gpt-3.5 and intel/hugginface neural-chat model
+   ![WhatsApp Image 2024-03-10 at 04 23 35_459e2b63](https://github.com/Kaarthik-07/daksh-hackathon/assets/132292791/96ffdb2d-756a-41d5-8b39-aa72ab4a5b8b)
 
 
+## In Action: OneDNN with Intel CPUs
+
+Integrating OneDNN and Intel CPUs can significantly improve the following aspects of your API:
+
+- **Batch Processing**: Process large batches of data with optimized throughput.
+- **Interactive Applications**: Support for interactive applications that require quick feedback loops and real-time analytics.
+- **Cost-Effective Infrastructure**: Maximize the utility of existing Intel hardware without the need for specialized accelerators.
+
+Embracing "Dora AI" in these scenarios not only enhances learning experiences but also paves the way for a future where every child is empowered with the knowledge to thrive as respectful, informed citizens. Join us on this transformative journey
 Our journey is far from over. With each new user, piece of feedback, and success story, we're inspired to continue improving and expanding our reach. Join us in making a difference.
 
 ## 🛠 Built With
@@ -87,21 +115,13 @@ Technologies and tools that empower "Dora AI" to deliver an interactive and enri
 ** The synergy of Next.js, React, Tailwind CSS, Framer Motion, GPT-3.5, Node.js, Express, Prisma, and PostgreSQL creates a seamless and dynamic platform for educating youth about legal rights. React's reactivity and component-based architecture form the bedrock of our user interface, making it both intuitive and engaging. Next.js facilitates optimal user experience with server-side rendering and static site generation capabilities. Tailwind CSS offers the flexibility to style our application efficiently, ensuring a responsive and modern design. **
 
 ![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)
-<br>
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-<br>
 ![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
-<br>
 ![Framer Motion](https://img.shields.io/badge/Framer_Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white)
-<br>
 ![GPT-3.5](https://img.shields.io/badge/GPT--3.5-000000?style=for-the-badge&logo=openai&logoColor=white)
-<br>
 ![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node-dot-js&logoColor=white)
-<br>
 ![Express.js](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge)
-<br>
 ![Prisma](https://img.shields.io/badge/Prisma-3982CE?style=for-the-badge&logo=Prisma&logoColor=white)
-<br>
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
 
 Each technology is carefully chosen to ensure that our platform is built upon a foundation of performance, scalability, and innovation.
@@ -120,41 +140,43 @@ Each technology is carefully chosen to ensure that our platform is built upon a 
 
 Building "Dora AI" was a learning journey in itself. Here's how we embraced the learning process:
 
-- *Hands-on experience* with cutting-edge technologies like Next.js, React, and Tailwind CSS to build the front end of the platform.
-- Learning to integrate *GPT-3.5 AI* effectively, to dynamically generate content and adapt to users' learning styles.
-- Understanding and implementing *best practices in software development* to create a scalable and maintainable codebase.
-- Engaging with the *open-source community* for insights, which significantly accelerated our learning curve.
-- Regular *peer-reviews* and *feedback sessions* that helped us refine our approach and learn collaboratively.
-- Continuous *research and development* to keep abreast of the latest educational strategies and technological advancements.
+- **Hands-on experience** with cutting-edge technologies like Next.js, React, and Tailwind CSS to build the front end of the platform.
+- Learning to integrate **ML MODELS** effectively, to dynamically generate content and adapt to users' learning styles.
+- Understanding and implementing **best practices in software development** to create a scalable and maintainable codebase.
+- Engaging with the **open-source community** for insights, which significantly accelerated our learning curve.
+- Regular **peer-reviews** and **feedback sessions** that helped us refine our approach and learn collaboratively.
+- Continuous **research and development** to keep abreast of the latest educational strategies and technological advancements.
+# Welcome to Our Prototype Demonstration
 
-These experiences have not only shaped "Dora AI" but also our team's expertise and passion for education technology.
+We are excited to present a visual walkthrough of our latest prototype. This video encapsulates the features, the user experience, and the innovative solutions our product offers. 
 
-## Intel® oneAPI
-Intel® OneAPI is a comprehensive development platform for building high-performance, cross-architecture applications. It provides a unified programming model, tools, and libraries that allow developers to optimize their applications for Intel® CPUs, GPUs, FPGAs, and other hardware. Intel® OneAPI includes support for popular programming languages like C++, Python, and Fortran, as well as frameworks for deep learning, high-performance computing, and data analytics. With Intel® OneAPI, developers can build applications that can run on a variety of hardware platforms, and take advantage of the performance benefits of Intel® architectures.
-
-## Use Of OneApi in our project
-
-In this section, we'll outline how we utilized various Intel® oneAPI libraries and frameworks to enhance the performance and efficiency of our models.
-
-### Intel® oneAPI Deep Neural Network Library (oneDNN)
-
-- OneDNN, formerly MKL-DNN, optimizes deep learning primitives for Intel CPUs, enhancing performance through CPU-specific optimizations. It seamlessly integrates with frameworks like TensorFlow, PyTorch, and others, improving speed and efficiency for training and inference tasks, especially in computer vision and natural language processing domains
-- Hugging Face democratizes AI and NLP with its Transformers library, offering state-of-the-art pre-trained models and tools for tokenization and dataset management.
-- Widely adopted by NLP practitioners and researchers, Hugging Face accelerates model development and deployment, facilitating tasks like sentiment analysis, machine translation, and chatbots, while OneDNN enhances deep learning performance on Intel architectures.
-
-**Usage** :
-We used hugginface/intel accelerated text-generation model **intel/neural-chat** for acheiving text-generation in our project and achieving better response time and accuracy
-
-## Performance Comparison
-The following graphs illustrate the substantial performance improvements achieved by integrating Intel® oneAPI libraries and frameworks into our models:
-
-1. comparing execution time between normal gpt-3.5 text-generation model and intel/hugginface neural-chat model
+Click the image below to watch the prototype video and see our product in action. We welcome your feedback and suggestions as we continue to improve and refine our prototype.
 
 <div align="center">
-    <img src="/comparision1.png" width="150" alt="comparision 1">
-</div>
-2. comparing the no.of tokens generated between normal gpt-3.5 and intel/hugginface neural-chat model
+   
 
-<div align="center">
-    <img src="comparision2.png" width="150" alt="comparision 2">
+
+
+
+
+https://github.com/Kaarthik-07/daksh-hackathon/assets/127304665/420f4438-b437-4922-9c63-56ae734498ad
+
+
 </div>
+
+We hope you find the demonstration informative and insightful. Thank you for your interest in our project!
+
+
+## Conclusion
+
+Utilizing Intel CPUs and OneDNN for your API infrastructure provides a solid foundation for delivering high-performance NLP services. They ensure that applications not only run faster but also more efficiently, addressing the demanding needs of today's data-driven world.
+
+
+
+
+
+
+
+
+
+
