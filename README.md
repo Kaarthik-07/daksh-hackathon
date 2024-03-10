@@ -142,11 +142,26 @@ Building "Dora AI" was a learning journey in itself. Here's how we embraced the 
 - Engaging with the **open-source community** for insights, which significantly accelerated our learning curve.
 - Regular **peer-reviews** and **feedback sessions** that helped us refine our approach and learn collaboratively.
 - Continuous **research and development** to keep abreast of the latest educational strategies and technological advancements.
+# Welcome to Our Prototype Demonstration
+
+We are excited to present a visual walkthrough of our latest prototype. This video encapsulates the features, the user experience, and the innovative solutions our product offers. 
+
+Click the image below to watch the prototype video and see our product in action. We welcome your feedback and suggestions as we continue to improve and refine our prototype.
+
+<div align="center">
+    <img src="https://github.com/Kaarthik-07/daksh-hackathon/assets/132292791/44228d20-b752-4fcd-8c9d-015adda24e28" width="500" alt="Prototype Video Thumbnail"/>
+</div>
+
+We hope you find the demonstration informative and insightful. Thank you for your interest in our project!
 
 
 ## Conclusion
 
 Utilizing Intel CPUs and OneDNN for your API infrastructure provides a solid foundation for delivering high-performance NLP services. They ensure that applications not only run faster but also more efficiently, addressing the demanding needs of today's data-driven world.
+
+
+
+
 
 
 
