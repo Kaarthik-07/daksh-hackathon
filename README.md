@@ -121,7 +121,7 @@ Each technology is carefully chosen to ensure that our platform is built upon a 
 Building "Dora AI" was a learning journey in itself. Here's how we embraced the learning process:
 
 - *Hands-on experience* with cutting-edge technologies like Next.js, React, and Tailwind CSS to build the front end of the platform.
-- Learning to integrate *GPT-3.5 AI* effectively, to dynamically generate content and adapt to users' learning styles.
+- Learning to integrate *AI models* effectively, to dynamically generate content and adapt to users' learning styles.
 - Understanding and implementing *best practices in software development* to create a scalable and maintainable codebase.
 - Engaging with the *open-source community* for insights, which significantly accelerated our learning curve.
 - Regular *peer-reviews* and *feedback sessions* that helped us refine our approach and learn collaboratively.
